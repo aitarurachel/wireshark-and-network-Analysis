@@ -159,6 +159,9 @@ TLSv1.3 Record Layer: Application Data
   4. Apply filter:
   `dns`
 
+<img width="1084" height="763" alt="dns filter" src="https://github.com/user-attachments/assets/31e2c917-1d20-437e-b05e-18f6335a5a02" />
+<br>
+
 ### What to find:
   - Query packet:    Info column reads "Standard query A google.com"
   - Response packet: Info column reads "Standard query response A google.com"
@@ -172,7 +175,10 @@ TLSv1.3 Record Layer: Application Data
   `nslookup example.com`
   2. Start capture, navigate to http://example.com, stop capture
   3. Apply filter (replace with actual IP):
-  `tcp and ip.addr == 93.184.216.34`
+  `tcp and ip.addr == [ip address]`
+
+<img width="1091" height="638" alt="tcp" src="https://github.com/user-attachments/assets/fa826b5c-cfe3-48bd-9f47-57f4ae512fd2" />
+<br>
 
 ### What to find:
   - Packet 1: Flags = SYN        — your machine initiating the connection
@@ -199,6 +205,9 @@ TLSv1.3 Record Layer: Application Data
   - Expand "HTML Form URL Encoded"
   - username and password are visible in plaintext
 
+<img width="957" height="593" alt="cleartext credential" src="https://github.com/user-attachments/assets/08795c58-c22a-42ee-8e64-c525c3efc430" />
+<br>
+
 ---
 
 ### Exercise D — Follow a TCP Stream
@@ -206,6 +215,9 @@ TLSv1.3 Record Layer: Application Data
   1. Capture any HTTP traffic
   2. Find any HTTP packet in the list
   3. Right-click → Follow → TCP Stream
+
+<img width="957" height="720" alt="tcp stream" src="https://github.com/user-attachments/assets/6e5ec219-3318-4509-961b-c90036f4e0ab" />
+<br>
 
   - Red  = your browser's request
   - Blue = server's response
@@ -241,7 +253,6 @@ TLSv1.3 Record Layer: Application Data
 
 **Trade-off:** Unconstrained captures on a busy network can grow large quickly. A 30-second capture on a typical workstation can produce 5,000–50,000 packets. Storage and memory are cheap enough that this isn't a problem for lab use, but in a production environment with sustained 10 Gbps traffic, capture filters become necessary — you simply cannot store everything.
 
----
 
 ### Decision 2: HTTP for the Credential Exercise
 
@@ -251,7 +262,6 @@ TLSv1.3 Record Layer: Application Data
 
 **Trade-off:** In 2025, finding real HTTP login forms in the wild is increasingly difficult because browsers, CDNs, and hosting platforms have pushed HTTPS adoption close to 100%. Students may need to spin up a local HTTP test server (a simple Flask or Python `http.server` instance) to complete this exercise reliably.
 
----
 
 ### Decision 3: .pcapng Format for Saved Captures
 
