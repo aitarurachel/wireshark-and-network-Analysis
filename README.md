@@ -5,6 +5,10 @@
 
 ---
 
+## 🎥 [watch the live demo](https://www.loom.com/share/e3f1fc93af1044c2ab757c5a1bffa081)
+
+---
+
 ## Project Goals
 
 This lab builds the foundational packet analysis skills every network and security professional needs. By the end of it you can:
